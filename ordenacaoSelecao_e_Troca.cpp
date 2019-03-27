@@ -21,16 +21,61 @@ void ordenacaoTroca(int *vet){
 			troca = 1;
 		}
 	}
-	}while(troca);
-	
-	
+	}while(troca);	
+}
+
+void ordenacaoTrocaPorCodigo(struct aluno *vet){
+	int i,troca;
+	struct aluno aux;
+	do{
+	troca=0;
+	for(i=0;i<TAM-1;i++){
+		if(vet[i].cod>vet[i+1].cod){
+			aux = vet[i];
+			vet[i]=vet[i+1];
+			vet[i+1]=aux;
+			troca = 1;
+		}
+	}
+	}while(troca);	
+}
+
+void ordenacaoTrocaPorPeso(struct aluno *vet){
+	int i,troca;
+	struct aluno aux;
+	do{
+	troca=0;
+	for(i=0;i<TAM-1;i++){
+		if(vet[i].peso>vet[i+1].peso){
+			aux = vet[i];
+			vet[i]=vet[i+1];
+			vet[i+1]=aux;
+			troca = 1;
+		}
+	}
+	}while(troca);	
 }
 
 
 
+void ordenacaoTrocaPorNome(struct aluno *vet){
+	int i,troca;
+	struct aluno aux;
+	do{
+	troca=0;
+	for(i=0;i<TAM-1;i++){
+		if(strcmp(vet[i].nome,vet[i+1].nome)>0){
+			aux = vet[i];
+			vet[i]=vet[i+1];
+			vet[i+1]=aux;
+			troca = 1;
+		}
+	}
+	}while(troca);	
+}
+
 void ordenacaoSelecao(int *vet){
 	int i,j,aux;
-
 	for(i=0;i<TAM-1;i++){
 		
 		int Pmenor = i;
@@ -101,12 +146,12 @@ int main(){
 					{28,"Pedro",60.6},{20,"Aparecida",67.9},
 					{15,"Bruno",100.8}};
 	int vetT[TAM]={18,27,9,6,28,20,15};
-	ordenacaoTroca(vetT);
-	for(int i=0;i<TAM;i++)
-		printf("%d ",vetT[i]);
+	ordenacaoTrocaPorNome(vetor);
+//	for(int i=0;i<TAM;i++)
+//		printf("%d ",vetT[i]);
 	
 	
 	//ordenacaoSelecaoPorPeso(vetor);
-	//for(int i=0;i<TAM;i++)
-	//	printf("\n %d %s %.2f",vetor[i].cod,vetor[i].nome,vetor[i].peso);
+	for(int i=0;i<TAM;i++)
+		printf("\n %d %s %.2f",vetor[i].cod,vetor[i].nome,vetor[i].peso);
 }
